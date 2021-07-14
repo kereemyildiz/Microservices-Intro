@@ -24,7 +24,6 @@ namespace APIGateway
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("http://*:9000"); // run from port 9000
                     webBuilder.UseStartup<Startup>();
                 });
     }
