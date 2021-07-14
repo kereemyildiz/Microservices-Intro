@@ -18,8 +18,13 @@ namespace APIGateway
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((host,config)=>
+                {
+                    config.AddJsonFile("ocelot.json");
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseUrls("http://*:9000"); // run from port 9000
                     webBuilder.UseStartup<Startup>();
                 });
     }
